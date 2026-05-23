@@ -1,0 +1,20 @@
+{
+    "filas": 200,
+    "columnas": 12,
+    "valores_nulos": {
+        "fecha_registro": 0,
+        "planta": 0,
+        "caudal_entrada_m3_d": 0,
+        "DBO_entrada_mg_L": 0,
+        "SST_entrada_mg_L": 0,
+        "pH_entrada": 0,
+        "energia_aeracion_kWh": 0,
+        "lodos_generados_kg_d": 0,
+        "DBO_salida_mg_L": 0,
+        "cumplimiento_norma": 0,
+        "eficiencia_DBO_pct": 0,
+        "alerta_operativa": 0
+    },
+    "duplicados": 0,
+    "registros_DBO_menor_igual_30_incumplen": 28
+}
