@@ -2,57 +2,96 @@
 
 ## 1. Descripción del caso
 
-AquaLimpia S. A. opera plantas de tratamiento de aguas residuales urbanas e industriales. Durante el último trimestre se detectaron incumplimientos intermitentes en parámetros críticos, especialmente DBO de salida y eficiencia del tratamiento.
+AquaLimpia S. A. es una empresa dedicada al tratamiento de aguas residuales urbanas e industriales. La empresa opera distintas plantas de tratamiento que reciben caudales variables y cargas contaminantes diferentes.
+
+Durante el último trimestre se detectaron incumplimientos intermitentes en parámetros críticos de calidad del efluente tratado, especialmente en la demanda biológica de oxígeno (DBO) y en la eficiencia del tratamiento.
+
+El objetivo del proyecto es desarrollar un análisis de datos reproducible que permita evaluar el desempeño de las plantas, identificar patrones relevantes y generar información útil para las áreas de Operaciones, Gestión Ambiental y Gerencia.
+
+---
 
 ## 2. Objetivo general
 
-Analizar el desempeño de las plantas de tratamiento para identificar patrones de incumplimiento, evaluar eficiencia operacional y apoyar la toma de decisiones de las áreas de Operaciones y Gestión Ambiental.
+Analizar el desempeño de las plantas de tratamiento de AquaLimpia S. A. mediante Python, reportes automatizados y un dashboard exploratorio, con el fin de apoyar la toma de decisiones operativas y ambientales.
 
-## 3. Datos utilizados
+---
 
-Archivo: `dataset_set_A_aguas_residuales.xlsx`
+## 3. Objetivos específicos
 
-Variables principales:
+- Cargar y explorar el dataset oficial de aguas residuales.
+- Calcular indicadores de eficiencia de remoción de DBO.
+- Evaluar el cumplimiento normativo por planta.
+- Identificar alertas operativas.
+- Generar reportes diferenciados para Operaciones y Gestión Ambiental.
+- Evaluar la calidad de los datos utilizados.
+- Construir un dashboard exploratorio.
+- Documentar el proyecto en un repositorio GitHub.
 
-- fecha_registro
-- planta
-- caudal_entrada_m3_d
-- DBO_entrada_mg_L
-- SST_entrada_mg_L
-- pH_entrada
-- energia_aeracion_kWh
-- lodos_generados_kg_d
-- DBO_salida_mg_L
-- cumplimiento_norma
+---
 
-## 4. Metodología
+## 4. Preguntas de análisis
 
-1. Carga del dataset.
-2. Limpieza y validación de datos.
-3. Cálculo de eficiencia de remoción de DBO.
-4. Análisis exploratorio por planta.
-5. Evaluación de calidad de datos.
-6. Generación de reportes Excel.
-7. Construcción de dashboard.
-8. Publicación en GitHub.
+1. ¿Qué plantas presentan menor cumplimiento normativo?
+2. ¿Cuál es el promedio de DBO de entrada y DBO de salida?
+3. ¿Qué relación existe entre la DBO de entrada y la DBO de salida?
+4. ¿Qué registros deben considerarse alertas operativas?
+5. ¿Qué limitaciones presenta la calidad de los datos?
+6. ¿Qué información requiere cada área de la empresa para tomar decisiones?
 
-## 5. Principales resultados
+---
 
-- Se analizaron 200 registros.
-- El cumplimiento global fue de 22,5 %.
-- La Planta Norte presentó el menor cumplimiento normativo.
-- La DBO de entrada mostró una correlación positiva alta con la DBO de salida.
-- Se detectaron posibles inconsistencias entre DBO de salida y la variable cumplimiento_norma.
+## 5. Dataset utilizado
 
-## 6. Limitaciones
+El archivo utilizado es:
 
-- El dataset no incluye variables climáticas, mantenciones, fallas operacionales ni dosificación química.
-- La variable cumplimiento_norma puede depender de criterios adicionales no incluidos.
-- El análisis es exploratorio y no causal.
+dataset_set_A_aguas_residuales.xlsx
 
-## 7. Ejecución
+El dataset contiene 200 registros y 10 variables relacionadas con el tratamiento de aguas residuales.
 
-```bash
-pip install -r requirements.txt
-python main.py
-streamlit run dashboard/app_dashboard.py
+### Variables principales
+
+| Variable | Descripción |
+|---|---|
+| fecha_registro | Fecha del registro operacional |
+| planta | Planta de tratamiento |
+| caudal_entrada_m3_d | Caudal de entrada en metros cúbicos por día |
+| DBO_entrada_mg_L | DBO del agua residual de entrada |
+| SST_entrada_mg_L | Sólidos suspendidos totales de entrada |
+| pH_entrada | Nivel de pH del agua residual |
+| energia_aeracion_kWh | Consumo de energía en aireación |
+| lodos_generados_kg_d | Cantidad de lodos generados |
+| DBO_salida_mg_L | DBO del efluente tratado |
+| cumplimiento_norma | Estado de cumplimiento normativo |
+
+---
+
+## 6. Estructura del proyecto
+
+```text
+aqualimpia-ciencia-datos/
+│
+├── data/
+│   └── raw/
+│       └── dataset_set_A_aguas_residuales.xlsx
+│
+├── src/
+│   ├── __init__.py
+│   └── funciones_aqualimpia.py
+│
+├── dashboard/
+│   └── dashboard.py
+│
+├── outputs/
+│   ├── reporte_operaciones.xlsx
+│   ├── reporte_gestion_ambiental.xlsx
+│   ├── resumen_por_planta.csv
+│   ├── calidad_datos.json
+│   └── resultados_aqualimpia.joblib
+│
+├── notebooks/
+│   └── analisis_aqualimpia.ipynb
+│
+├── main.py
+├── README.md
+├── requirements.txt
+└── .gitignore
