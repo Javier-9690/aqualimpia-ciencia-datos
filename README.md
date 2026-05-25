@@ -74,8 +74,7 @@ aqualimpia-ciencia-datos/
 │   └── raw/
 │       └── dataset_set_A_aguas_residuales.xlsx
 │
-├── src/
-│   ├── __init__.py
+├── src/│ 
 │   └── funciones_aqualimpia.py
 │
 ├── dashboard/
